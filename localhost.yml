@@ -41,11 +41,11 @@
       - { name: tmux }
       - { name: reattach-to-user-namespace }
       - { name: cmake }
-      - { name: ricty }
       - { name: ag }
       - { name: libtool }
       - { name: tig }
-      - { name: synx }
+#      - { name: ricty }
+#      - { name: synx }
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
@@ -56,17 +56,21 @@
       - { name: virtualbox }
       - { name: caffeine }
       - { name: alfred }
+      - { name: hammerspoon }
+      - { name: sip }
+      - { name: boostnote }
+      - { name: grammarly }
 
   tasks:
-    - name: homebrew の tap リポジトリを追加
+    - name: add homebrew tap repositories
       homebrew_tap: tap={{ item }} state=present
-      with_items: homebrew_taps
+      with_items: '{{ homebrew_taps }}'
 
-    - name: homebrew をアップデート
+    - name: update homebrew
       homebrew: update_homebrew=yes
 
     # brew
-    - name: brew パッケージをインストール
+    - name: install brew package
       homebrew: >
         name={{ item.name }}
         state={{ item.state | default('latest') }}
@@ -75,26 +79,14 @@
           if item.install_options is not string
           else item.install_options
         }}
-      with_items: homebrew_packages
+      with_items: '{{ homebrew_packages }}'
       register: brew_result
-    - name: brew パッケージの情報保存先ディレクトリを作成
-      file: path=brew_info state=directory
-    - name: brew パッケージの情報を保存
-      shell: brew info {{ item }} > brew_info/{{ item }}
-      with_items: brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
 
     # cask
-    - name: homebrew-cask のインストール
-      homebrew: name=brew-cask state=latest
-    - name: cask パッケージをインストール
+    - name: install cask packages
       homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
-      with_items: homebrew_cask_packages
+      with_items: '{{ homebrew_cask_packages }}'
       register: cask_result
-    - name: cask パッケージの情報保存先ディレクトリを作成
-      file: path=cask_info state=directory
-    - name: cask パッケージの情報を保存
-      shell: brew cask info {{ item }} > cask_info/{{ item }}
-      with_items: cask_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
 
   handlers:
     - name: run fc-cache
