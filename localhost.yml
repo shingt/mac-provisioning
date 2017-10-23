@@ -45,6 +45,7 @@
       - { name: libtool }
       - { name: tig }
       - { name: vim }
+      - { name: fzf }
 #      - { name: ricty }
 #      - { name: synx }
     homebrew_cask_packages:
