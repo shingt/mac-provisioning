@@ -46,6 +46,7 @@
       - { name: tig }
       - { name: vim }
       - { name: fzf }
+      - { name: yarn, install_options: without-node}
 #      - { name: ricty }
 #      - { name: synx }
     homebrew_cask_packages:
