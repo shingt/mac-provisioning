@@ -4,9 +4,6 @@
   sudo: no
   vars:
     homebrew_taps:
-      - homebrew/versions
-      - homebrew/binary
-      - homebrew/dupes
       - caskroom/cask
       - sanemat/font
     homebrew_packages:
