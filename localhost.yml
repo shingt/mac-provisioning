@@ -54,7 +54,6 @@
       - { name: skitch }
       - { name: vagrant }
       - { name: virtualbox }
-      - { name: caffeine }
       - { name: alfred }
       - { name: hammerspoon }
       - { name: sip }
