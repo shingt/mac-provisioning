@@ -44,8 +44,6 @@
       - { name: vim }
       - { name: fzf }
       - { name: yarn, install_options: without-node}
-#      - { name: ricty }
-#      - { name: synx }
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
@@ -59,6 +57,7 @@
       - { name: sip }
       - { name: boostnote }
       - { name: grammarly }
+      - { name: visual-studio-code }
 
   tasks:
     - name: add homebrew tap repositories
