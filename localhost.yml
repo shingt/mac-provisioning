@@ -1,10 +1,8 @@
 - hosts: localhost
   connection: local
   gather_facts: no           
-  sudo: no
   vars:
     homebrew_taps:
-      - caskroom/cask
       - sanemat/font
     homebrew_packages:
       - { name: readline }
@@ -43,7 +41,7 @@
       - { name: tig }
       - { name: vim }
       - { name: fzf }
-      - { name: yarn, install_options: without-node}
+      - { name: yarn }
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
