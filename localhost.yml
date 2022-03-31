@@ -42,6 +42,7 @@
       - { name: vim }
       - { name: fzf }
       - { name: yarn }
+      - { name: mas }
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
@@ -56,6 +57,7 @@
       - { name: grammarly }
       - { name: visual-studio-code }
       - { name: rectangle }
+      - { name: amphetamine }
 
   tasks:
     - name: add homebrew tap repositories
