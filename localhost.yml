@@ -52,7 +52,6 @@
       - { name: virtualbox }
       - { name: alfred }
       - { name: hammerspoon }
-      - { name: sip }
       - { name: boostnote }
       - { name: grammarly }
       - { name: visual-studio-code }
