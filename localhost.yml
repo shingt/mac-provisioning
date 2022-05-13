@@ -43,6 +43,7 @@
       - { name: fzf }
       - { name: yarn }
       - { name: mas }
+      - { name: zplug }
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
