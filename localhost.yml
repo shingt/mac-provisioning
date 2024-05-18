@@ -57,6 +57,7 @@
       - { name: visual-studio-code }
       - { name: rectangle }
       - { name: amphetamine }
+      - { name: git-credential-manager }
 
   tasks:
     - name: add homebrew tap repositories
