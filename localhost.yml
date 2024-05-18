@@ -15,7 +15,6 @@
       - { name: zsh }
       - { name: wget }
       - { name: curl }
-      - { name: cmake }
       - { name: autoconf }
       - { name: automake }
       - { name: pkg-config }
@@ -35,7 +34,6 @@
       - { name: w3m }
       - { name: tmux }
       - { name: reattach-to-user-namespace }
-      - { name: cmake }
       - { name: ag }
       - { name: libtool }
       - { name: tig }
@@ -44,6 +42,7 @@
       - { name: yarn }
       - { name: mas }
       - { name: zplug }
+      - { name: gnupg }
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
@@ -55,7 +54,6 @@
       - { name: alfred }
       - { name: hammerspoon }
       - { name: boostnote }
-      - { name: grammarly }
       - { name: visual-studio-code }
       - { name: rectangle }
       - { name: amphetamine }
