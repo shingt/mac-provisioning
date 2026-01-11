@@ -12,6 +12,7 @@
       - { name: ansible }
       - { name: coreutils }
       - { name: git }
+      - { name: gh }
       - { name: gnupg }
       - { name: pinentry-mac }
       - { name: zsh }
