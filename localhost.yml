@@ -1,6 +1,6 @@
 - hosts: localhost
   connection: local
-  gather_facts: no           
+  gather_facts: no
   vars:
     homebrew_taps:
       - sanemat/font
@@ -12,6 +12,8 @@
       - { name: ansible }
       - { name: coreutils }
       - { name: git }
+      - { name: gnupg }
+      - { name: pinentry-mac }
       - { name: zsh }
       - { name: wget }
       - { name: curl }
@@ -29,12 +31,10 @@
       - { name: hub }
       - { name: tig }
       - { name: rbenv }
-      - { name: mysql }
-      - { name: redis }
       - { name: w3m }
       - { name: tmux }
       - { name: reattach-to-user-namespace }
-      - { name: ag }
+      - { name: the_silver_searcher }
       - { name: libtool }
       - { name: tig }
       - { name: vim }
@@ -46,18 +46,10 @@
     homebrew_cask_packages:
       - { name: iterm2 }
       - { name: google-chrome }
-      - { name: skype }
       - { name: slack }
-      - { name: skitch }
-      - { name: vagrant }
-      - { name: virtualbox }
       - { name: alfred }
       - { name: hammerspoon }
-      - { name: boostnote }
-      - { name: visual-studio-code }
-      - { name: rectangle }
-      - { name: amphetamine }
-      - { name: git-credential-manager }
+      - { name: claude-code }
 
   tasks:
     - name: add homebrew tap repositories
@@ -69,14 +61,10 @@
 
     # brew
     - name: install brew package
-      homebrew: >
-        name={{ item.name }}
-        state={{ item.state | default('latest') }}
-        install_options={{
-          item.install_options | default() | join(',')
-          if item.install_options is not string
-          else item.install_options
-        }}
+      homebrew:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('latest') }}"
+        install_options: "{{ item.install_options | default(omit) }}"
       with_items: '{{ homebrew_packages }}'
       register: brew_result
 
